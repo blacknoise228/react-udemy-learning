@@ -3,7 +3,7 @@ import PostsList from "./components/PostsList";
 import MainHeader from "./components/MainHeader";
 
 function App() {
-  const [modalIsOpen, setModalIsOpen] = useState(true);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
 
   function showModalHandler() {
     setModalIsOpen(true);
