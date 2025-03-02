@@ -24,3 +24,14 @@ export async function getPosts() {
 
   return data;
 }
+
+export async function getPostDetails(id) {
+  const { data, error } = await supabase.from("posts").select("*").eq("id", id);
+
+  if (error) {
+    console.error("Ошибка при получении поста:", error.message);
+    return null;
+  }
+  console.log(data);
+  return data[0];
+}

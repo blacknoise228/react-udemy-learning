@@ -7,11 +7,15 @@
     box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
     animation: animate-in 1s ease-out forwards;
   }
-  
+
+  .post a {
+    text-decoration: none;
+  }
+
   .author {
     font-size: 0.8rem;
     font-weight: bold;
-    color: #543280;
+    color: #d1c9dc;
     margin: 0;
     text-transform: uppercase;
   }
@@ -20,7 +24,7 @@
     white-space: pre-wrap;
     font-size: 1.25rem;
     margin: 0.25rem 0 0 0;
-    color: #593884;
+    color: #bebcc2;
     font-style: italic;
   }
   

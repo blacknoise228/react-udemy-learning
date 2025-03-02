@@ -1,40 +1,22 @@
 import styles from "./PostsList.module.css";
 import Post from "./Post";
-import NewPost from "./NewPost";
-import { useState, useEffect } from "react";
-import Modal from "./Modal";
-import { addPost, getPosts } from "../api/post";
+import { useLoaderData } from "react-router-dom";
 
-function PostsList({ isPosting, onStopPosting }) {
-  const [posts, setPosts] = useState([]);
+function PostsList() {
 
-  function addPostHandler(postData) {
-    addPost(postData);
-  }
-
-  useEffect(() => {
-    async function fetchPosts() {
-      const response = await getPosts();
-      setPosts(response);
-    }
-
-    fetchPosts();
-    
-  }, []);
-
+  const posts = useLoaderData();
 
   return (
     <>
-      {isPosting && (
-        <Modal onClose={onStopPosting}>
-          <NewPost onCancel={onStopPosting} onAddPost={addPostHandler} />
-        </Modal>
-      )}
-
       {posts.length > 0 && (
         <ul className={styles.list}>
           {posts.map((post) => (
-            <Post key={post.author} author={post.author} body={post.post_text} />
+            <Post
+              key={post.id}
+              id={post.id}
+              author={post.author}
+              body={post.post_text}
+            />
           ))}
         </ul>
       )}
